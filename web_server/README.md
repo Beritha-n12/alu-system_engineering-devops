@@ -1,0 +1,2 @@
+This project will be focusing on  server configuration 
+And checking whether the file contain a Bash script that automatically performs commands to configure an Ubuntu machine(meaning without any human intervention).
