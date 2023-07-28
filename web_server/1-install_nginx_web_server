@@ -4,7 +4,7 @@
 apt-get update
 apt-get install -y nginx
 
-sudo apt update
+sudo netstat -tuln | grep 80
 
 echo "Holberton School" > /var/www/html/index.html
 
