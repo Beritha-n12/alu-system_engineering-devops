@@ -4,7 +4,8 @@
 apt-get update
 apt-get install -y nginx
 
-service nginx start
+# Start nginx (it automatically listens on port 80)
+/usr/sbin/nginx
 
 echo "Holberton School" > /var/www/html/index.html
 
