@@ -4,7 +4,7 @@
 apt-get update
 apt-get install -y nginx
 
-sudo service nginx status
+sudo apt update
 
 echo "Holberton School" > /var/www/html/index.html
 
