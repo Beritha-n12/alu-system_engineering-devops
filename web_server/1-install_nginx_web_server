@@ -3,14 +3,5 @@
 
 apt-get update
 apt-get install -y nginx
-
-sudo netstat -tuln | grep 80
-
 echo "Holberton School" > /var/www/html/index.html
-
-if pgrep -x "nginx" > /dev/null
-then
-    echo "Nginx is running."
-else
-    echo "Nginx failed to start."
-fi
+sudo netstat -tuln | grep 80
