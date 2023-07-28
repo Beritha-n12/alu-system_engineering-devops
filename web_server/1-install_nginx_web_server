@@ -4,9 +4,9 @@
 apt-get update
 apt-get install -y nginx
 
-/usr/sbin/nginx
+service nginx start
 
-echo "Holberton School for the win!" | tee /var/www/html/index.html
+echo "Holberton School" > /var/www/html/index.html
 
 if pgrep -x "nginx" > /dev/null
 then
