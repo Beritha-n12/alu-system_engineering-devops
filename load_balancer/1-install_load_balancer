@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 #installing load balancer
 sudo apt update -y
-sudo apt install nginx -y
-new_config=\
-"server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-		root /var/www/html;
-	index index.html index.html index.nginx-debian.html;
-	server_name _;
-	add_header X-Served-By $HOSTNAME;
-}
-"
-sudo chown -R "$USER":"$USER" /etc/nginx/sites-available/default
-echo "$new_config" > /etc/nginx/sites-available/default
-sudo service nginx restart
+sudo apt install haproxy -y
+echo 'ENABLED=1' | sudo tee -a /etc/default/haproxy
+printf %s 'backend web-backend
+        balance roundrobin
+        server 5755-web-01 3.82.46.106:80 check
+        server 5755-web-02 3.92.51.230:80 check
+frontend http
+        bind *:80
+        mode http
+        default_backend web-backend
+' | sudo tee -a /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
