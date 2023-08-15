@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-#using task0
-docker run -p 80:80 -d -it holbertonschool/265-0
-sleep 1
-curl 0:80
-
+# comment
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
+kill "$(pgrep 'nginx' | head -1)"
